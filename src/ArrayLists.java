@@ -25,5 +25,9 @@ public class ArrayLists {
         //удаление не с конца очень не эффективно
         list.remove(5);
         System.out.println(list);
+
+        list.forEach(i ->{
+            System.out.println(i);
+        });
     }
 }
