@@ -13,6 +13,8 @@ public class HashMaps {
 
         hashMap.forEach((k,v) -> System.out.println(k + "=" + v));
 
+        hashMap.remove(2);
+
         for(Map.Entry<Integer,String> entry:hashMap.entrySet()){
             System.out.println(entry.getKey() + "=" + entry.getValue());
         }
