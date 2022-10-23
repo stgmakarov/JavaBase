@@ -1,6 +1,9 @@
 /**
  * @author Stanislav Makarov
  */
+
+import static org.junit.Assert.*;
+
 public class MyLinkedList {
     Node head;
     Node last;
@@ -66,28 +69,39 @@ public class MyLinkedList {
     public void check(){
         for(int i=0;i<size;i++){
             Node checkedNode = get(i);
-            assert checkedNode.getPrev() == null || checkedNode.getPrev().getNext() == checkedNode;
-            assert checkedNode.getNext() == null || checkedNode.getNext().getPrev() == checkedNode;
+
+            if(checkedNode.getPrev() != null){
+                assertSame(checkedNode,checkedNode.getPrev().getNext());
+            }
+
+            if(checkedNode.getNext() != null){
+                assertSame(checkedNode,checkedNode.getNext().getPrev());
+            }
         }
-        assert size>0||head!=null;
-        assert size>1||head!=null&last!=null;
+
+
+        if(size>0)assertNotNull(head);
+        if(size>1){
+            assertNotNull(head);
+            assertNotNull(last);
+        }
 
         if (size>1){
             Node temp=head;
             while (temp.getNext()!=null){
                 temp = temp.getNext();
             }
-            assert temp==last;
+            assertSame(temp,last);
 
             temp=last;
             while (temp.getPrev()!=null){
                 temp = temp.getPrev();
             }
-            assert temp==head;
+            assertSame(temp,head);
         }
 
-        assert head.getPrev() == null;
-        assert last.getNext() == null;
+        assertSame(head.getPrev(),null);
+        assertSame(last.getNext(), null);
     }
 
 
