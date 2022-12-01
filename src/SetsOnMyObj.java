@@ -16,7 +16,7 @@ public class SetsOnMyObj {
 
 }
 
-class Person implements Comparable {
+class Person {
     int id;
     String name;
 
@@ -43,8 +43,8 @@ class Person implements Comparable {
         return id;
     }
 
-    @Override
+/*    @Override
     public int compareTo(Object o) {
         return Integer.compare(name.length(), ((Person) o).name.length());
-    }
+    }*/
 }
